@@ -6,7 +6,7 @@
 /*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:24 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/03 17:29:34 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/04 02:17:19 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_strchr(const char *s, int c)
 {
+    if(!s){
+        return (NULL);
+    }
 	while (*s != '\0')
 	{
 		if (*s == (char)c)
@@ -44,16 +47,37 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len1;
 	size_t	len2;
 
-	if (!s1 || !s2)
+	if (!s2)
 		return (NULL);
-            
-	len1 = ft_strlen(s1);
+
+    if (!s1)
+       len1=0;
+    else
+	    len1 = ft_strlen(s1);
+    
 	len2 = ft_strlen(s2);
 	str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!str)
 		return (NULL);
-	ft_memcpy(str, s1, len1);
-	ft_memcpy(str + len1, s2, len2 + 1);
+    
+    if(s1)    
+	    ft_memcpy(str, s1, len1);
+	
+    ft_memcpy(str + len1, s2, len2 + 1);
 	return (str);
 }
 
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t	i;
+
+	if (dst == NULL && src == NULL)
+		return (0);
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+	return (dst);
+}

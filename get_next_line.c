@@ -6,14 +6,14 @@
 /*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:09 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/03 20:43:24 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/04 02:12:27 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 
-static char *read_store( int fd, char *store)
+ char *read_store( int fd, char *store)
 {
     char *buffer;
     int read_index;
@@ -37,6 +37,7 @@ static char *read_store( int fd, char *store)
         buffer[read_index]='\0';
         store=ft_strjoin(store,buffer);
     }
+    free(buffer);
     return(store);
 }
 
