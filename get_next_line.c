@@ -6,7 +6,7 @@
 /*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:09 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/03 20:30:31 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/03 20:43:24 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,15 @@ static char *read_store( int fd, char *store)
         buffer[read_index]='\0';
         store=ft_strjoin(store,buffer);
     }
-    /* buffer için malloc kadar yer aç
+    return(store);
+}
+
+   /* buffer için malloc kadar yer aç
         read() ile açılan yeri doldur sonucu read_store a eşitle
         while döngüsüne girebilmesi için read_index 1 e eşile ki içeri giebilsin
 
         */
-}
-
+       
 /*
     buffer size kadarını okuyup \n görene kadar statikdeğişkene ekle
     
