@@ -30,7 +30,8 @@ GNL.C  ana mantığı kur. dosyayı oku satırıayır artan olursa statik deği�
 read() ileg etireceğin veriyi anlamlı hale getirebilmek için libft deki fonklardan lazım. 
 
 libft yasak!! kendine gerekli fonksiyoarı ayarlaman lazım. 
-yapmam gereken fonksiyonlar : strchr  \n var mı yok mu diye bak. , 
+yapmam gereken fonksiyonlar : 
+strchr  \n var mı yok mu diye bak. , 
 strjoin yeni okunan veriyi önceki veriyle brileştirmek için. eski veri statik değişkende olacak, 
 strlen mallocta ne kadar yer açman lazım bunun için uzunluk hesaplanmalı, 
 substr ile satırı bulunduğu yerden kesip ayır. 
@@ -41,4 +42,8 @@ substr ile satırı bulunduğu yerden kesip ayır.
 gnl.c yapılacaklar : read() ile budder sıze kadar oku strjoin ile statik değişkene \n görene kadar ekle ,  \n yoksa buffer sıze kadar ekle
                     statik değişkenin başından \n'e kadar substr ile al. bunu return et. 
                     statik değişkeni güncelle : \n den sonra veri kalırsa bu veriyi en başa al. bir sonraki okuma buradan başlayacak. 
-                    
+
+
+.h ı hazırladın zaten , 
+ilk önce takım alet çantamı hazılayım : utisi hazırla.  fonksiyonları çh ye eklemeyi unutma 
+
