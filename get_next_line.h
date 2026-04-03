@@ -6,7 +6,7 @@
 /*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:53 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/03 17:06:04 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/03 18:21:23 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
-# endif
+
+#endif
+
 
 char	*get_next_line(int fd);
 

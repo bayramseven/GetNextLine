@@ -19,6 +19,8 @@ https://www.w3schools.com/c/ref_keyword_static.php
 read() fonksiyonunu kullanarak fd den veri okuman gerek araştır.
 https://man7.org/linux/man-pages/man2/read.2.html
 
+ramin ypısını öğrenmek içim https://www.geeksforgeeks.org/c/memory-layout-of-c-program/ kaynağından yararlandım.
+
 --j
 
 
