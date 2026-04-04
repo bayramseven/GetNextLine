@@ -6,7 +6,7 @@
 /*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:09 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/04 02:12:27 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/04 02:49:02 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
     char *buffer;
     int read_index;
 
-    buffer=malloc((BUFFER_SIZE +1)*sizeof(char));
+    buffer=(char *)ft_calloc((BUFFER_SIZE + 1),sizeof(char));
     if (!buffer)
     {
         return (NULL);

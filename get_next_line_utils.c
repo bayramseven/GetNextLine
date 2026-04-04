@@ -6,7 +6,7 @@
 /*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:24 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/04 02:17:19 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/04 02:59:15 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,22 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		i++;
 	}
 	return (dst);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+	size_t	total;
+
+	total = count * size;
+	ptr = malloc(total);
+	if (!ptr)
+		return (0);
+	ft_bzero(ptr, total);
+	return (ptr);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, '\0', n);
 }
