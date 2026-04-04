@@ -6,7 +6,7 @@
 /*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:09 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/04 02:49:02 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/04 04:06:49 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,30 @@
     return(store);
 }
 
-   /* buffer için malloc kadar yer aç
-        read() ile açılan yeri doldur sonucu read_store a eşitle
-        while döngüsüne girebilmesi için read_index 1 e eşile ki içeri giebilsin
+char	*get_clean_line(char *store)
+{
+    char	*line;
+	char	*newline;
+	size_t	len;
 
-        */
-       
-/*
-    buffer size kadarını okuyup \n görene kadar statikdeğişkene ekle
+	if (!store || !*store)
+        return(NULL);
     
-    \n 'den öncesini sil ve \n den sonrasını statik değişkenin en başına koy
-    ama silersen veri kaybolur. bunu swap şeklinde yapmalıyız muhtemelen. bunu iyicene araştır. ilk yapılacağı yap ondan sonra buna yoğunlaş.
-*/
 
 
-/*
-nisan 19 toplantı  köy okul projesi müdürle      
+	newline = ft_strchr(store, '\n');
+	
+	if (newline)
+		len = (newline - store) + 1;
+	else
+		len = ft_strlen(store);
 
-*/
+	line = (char *)ft_calloc(len + 1, sizeof(char));
+
+
+	if (!line)
+		return(NULL);
+
+
+
+}
