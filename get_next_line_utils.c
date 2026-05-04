@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:24 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/04 21:19:49 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/05/04 23:28:35 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_strlen(const char *s)
 
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -87,26 +87,8 @@ void	*ft_calloc(size_t count, size_t size)
 	total = count * size;
 	ptr = malloc(total);
 	if (!ptr)
-		return (0);
-	ft_bzero(ptr, total);
+		return (NULL);
+	while (total--)
+		((unsigned char *)ptr)[total] = 0;
 	return (ptr);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, '\0', n);
-}
-
-void	*ft_memset(void *b, int c, size_t len)
-{
-	unsigned char *ptr;
-
-	ptr = (unsigned char *)b;
-	while (len > 0 && len != '\0')
-	{
-		*ptr = (unsigned char)c;
-		ptr++;
-		len--;
-	}
-	return (b);
 }

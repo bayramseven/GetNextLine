@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:09 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/04 21:36:33 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/05/04 22:37:38 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ char	*read_store(int fd, char *store)
 
 	buffer = (char *)ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!buffer)
-	{
 		return (NULL);
-	}
 	read_index = 1;
 	while (!ft_strchr(store, '\n') && read_index != 0)
 	{
@@ -30,6 +28,8 @@ char	*read_store(int fd, char *store)
 		if (read_index == -1)
 		{
 			free(buffer);
+			free(store);
+			store = NULL;
 			return (NULL);
 		}
 		buffer[read_index] = '\0';
@@ -96,19 +96,15 @@ char	*update_store(char *store)
 
 char	*get_next_line(int fd)
 {
-	static char *store;
-	char *line;
+	static char	*store;
+	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-
 	store = read_store(fd, store);
 	if (!store)
 		return (NULL);
-
 	line = get_clean_line(store);
-
 	store = update_store(store);
-
 	return (line);
 }
