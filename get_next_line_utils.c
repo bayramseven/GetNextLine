@@ -6,7 +6,7 @@
 /*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:24 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/05/04 23:28:35 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/05/13 23:38:05 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s2)
 		return (NULL);
-	if (!s1)
-		len1 = 0;
-	else
+	len1 = 0;
+	if (s1)
 		len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
