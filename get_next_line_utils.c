@@ -6,7 +6,7 @@
 /*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:24 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/05/13 23:38:05 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/05/15 16:22:06 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	if (s1)
 		ft_memcpy(str, s1, len1);
-	ft_memcpy(str + len1, s2, len2 + 1);
+	ft_memcpy(str + len1, s2, len2);
+	str[len1 + len2] = '\0';
 	return (str);
 }
 

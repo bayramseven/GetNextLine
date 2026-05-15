@@ -6,7 +6,7 @@
 /*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:09 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/05/04 22:37:38 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/05/15 16:42:12 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,11 @@ char	*read_store(int fd, char *store)
 	{
 		read_index = read(fd, buffer, BUFFER_SIZE);
 		if (read_index == -1)
-		{
-			free(buffer);
-			free(store);
-			store = NULL;
-			return (NULL);
-		}
+			return (free(buffer), free(store), NULL);
 		buffer[read_index] = '\0';
 		temp_store = ft_strjoin(store, buffer);
+		if (!temp_store)
+			return (free(buffer), free(store), NULL);
 		free(store);
 		store = temp_store;
 	}
@@ -105,6 +102,12 @@ char	*get_next_line(int fd)
 	if (!store)
 		return (NULL);
 	line = get_clean_line(store);
+	if (!line)
+	{
+		free(store);
+		store = NULL;
+		return (NULL);
+	}
 	store = update_store(store);
 	return (line);
 }
