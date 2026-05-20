@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:24 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/05/15 16:22:06 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/05/20 16:16:44 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,35 +48,21 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len1;
 	size_t	len2;
 
-	if (!s2)
-		return (NULL);
 	len1 = 0;
+	len2 = 0;
 	if (s1)
 		len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
+	if (s2)
+		len2 = ft_strlen(s2);
+	str = (char *)ft_calloc(len1 + len2 + 1, sizeof(char));
 	if (!str)
 		return (NULL);
-	if (s1)
-		ft_memcpy(str, s1, len1);
-	ft_memcpy(str + len1, s2, len2);
 	str[len1 + len2] = '\0';
+	while (len2--)
+		str[len1 + len2] = s2[len2];
+	while (len1--)
+		str[len1] = s1[len1];
 	return (str);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	size_t	i;
-
-	if (dst == NULL && src == NULL)
-		return (0);
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		i++;
-	}
-	return (dst);
 }
 
 void	*ft_calloc(size_t count, size_t size)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 15:12:09 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/05/19 10:22:41 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/05/20 16:16:25 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*read_store(int fd, char *store)
 
 	buffer = (char *)ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!buffer)
-		return (NULL);
+		return (free(store), NULL);
 	read_index = 1;
 	while (!ft_strchr(store, '\n') && read_index != 0)
 	{
@@ -99,8 +99,12 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	store = read_store(fd, store);
-	if (!store)
+	if (!store || *store == '\0')
+	{
+		free(store);
+		store = NULL;
 		return (NULL);
+	}
 	line = get_clean_line(store);
 	if (!line)
 	{
